@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registracija korisnika"
+        android:textSize="140px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240px"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/labelIme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ime: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_marginTop="600px"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/ime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelIme"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginTop="600px"
+        android:layout_marginRight="40px" />
+
+    <TextView
+        android:id="@+id/labelPrezime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prezime: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_below="@id/labelIme"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/prezime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelPrezime"
+        android:layout_below="@id/ime"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginRight="40px" />
+
+    <TextView
+        android:id="@+id/labelTelefon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefon: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_below="@id/labelPrezime"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/telefon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelTelefon"
+        android:layout_below="@id/prezime"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginRight="40px" />
+
+    <TextView
+        android:id="@+id/labelAdresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adresa: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_below="@id/labelTelefon"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/adresa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelAdresa"
+        android:layout_below="@id/labelTelefon"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginRight="40px" />
+
+
+    <TextView
+        android:id="@+id/labelKorisnik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Korisničko ime: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_below="@id/labelAdresa"
+        android:layout_marginTop="60px"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/korisnickoIme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelKorisnik"
+        android:layout_below="@id/labelAdresa"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:layout_marginTop="60px"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginRight="40px" />
+
+    <TextView
+        android:id="@+id/labelLozinka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lozinka: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:layout_below="@id/labelKorisnik"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/lozinka"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/labelLozinka"
+        android:layout_below="@id/labelKorisnik"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:fontFamily="@font/island_moments"
+        android:textSize="58px"
+        android:paddingLeft="10px"
+        android:layout_marginRight="40px" />
+
+
+    <Button
+        android:id="@+id/potvrda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Potvrda unosa"
+        android:layout_below="@id/lozinka"
+        android:layout_marginTop="100px"
+        android:layout_centerHorizontal="true"
+        android:onClick="registerUser"/>
+</RelativeLayout>

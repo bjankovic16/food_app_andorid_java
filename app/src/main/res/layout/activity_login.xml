@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:id="@+id/labelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Korisničko ime: "
+        android:textSize="100px"
+        android:paddingLeft="40px"
+        android:fontFamily="@font/island_moments"
+        android:textColor="@color/white"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/korisnickoIme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/labelTextView"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:layout_marginRight="40px" />
+
+    <TextView
+        android:id="@+id/labelTextLozinka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-2dp"
+        android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Lozinka: "
+        android:textColor="@color/white"
+        android:textSize="100px"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/lozinka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:backgroundTint="@color/white"
+        android:layout_toEndOf="@id/labelTextLozinka"
+        android:layout_below="@id/labelTextView"
+        android:layout_marginRight="40px"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/potvrda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Potvrda unosa"
+        android:layout_below="@id/lozinka"
+        android:layout_marginTop="20px"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/labelLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/potvrda"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Nemate nalog klkiknite ovde..."
+        android:textColor="@color/white"
+        android:onClick="Registration"
+        android:textSize="80px" />
+
+
+</RelativeLayout>
