@@ -53,13 +53,13 @@ public class Index extends AppCompatActivity {
 
     public void clickCake(View view) {
         Intent intent = new Intent(this, Products_List.class);
-        intent.putExtra("showing","cake");
+        intent.putExtra("showing","cakes.json");
         startActivity(intent);
     }
 
     public void clickCookie(View view) {
         Intent intent = new Intent(this, Products_List.class);
-        intent.putExtra("showing","cookie");
+        intent.putExtra("showing","cookies.json");
         startActivity(intent);
     }
 

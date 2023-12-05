@@ -41,11 +41,24 @@ public class Common {
         }
     }
 
+    public static boolean doesFileExist(Context context, String fileName){
+        File path = context.getFilesDir();
+        File file = new File(path, fileName);
+        return file.exists();
+    }
+
     public static ArrayList<User> getAllUsers(Context context, String fileName) {
         String readData = readFromFile(context, fileName);
         java.lang.reflect.Type listType = new TypeToken<List<User>>() {}.getType();
         ArrayList<User> personList = new Gson().fromJson(readData, listType);
         return personList==null ? new ArrayList<>() : personList;
+    }
+
+    public static ArrayList<Product> getAllProducts(Context context, String fileName) {
+        String readData = readFromFile(context, fileName);
+        java.lang.reflect.Type listType = new TypeToken<List<Product>>() {}.getType();
+        ArrayList<Product> products = new Gson().fromJson(readData, listType);
+        return products;
     }
 
     public static String readFromFile(Context context, String fileName) {
