@@ -1,6 +1,8 @@
 package com.example.andoridpki;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String ime;
     private String prezime;
     private String telefon;

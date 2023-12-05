@@ -15,6 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Common {
+    public static String makeJsonFromObject(Object obj){
+        Gson gson = new Gson();
+        return gson.toJson(obj);
+    }
+
+    public static User makeUserFromJson(String json) {
+        java.lang.reflect.Type listType = new TypeToken<User>() {}.getType();
+        return new Gson().fromJson(json,listType);
+    }
+
     public static void writeIntoFile(Context context, String fileName, Object obj) {
         Gson gson = new Gson();
         String jsonString = gson.toJson(obj);

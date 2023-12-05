@@ -3,6 +3,7 @@ package com.example.andoridpki;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -24,6 +25,14 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void putInCache(User user){
+        String json = Common.makeJsonFromObject(user);
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("user", json);
+        editor.apply();
+    }
+
     public void loginUser(View view) {
         String korisnickoIme = String.valueOf(((EditText) findViewById(R.id.loginIme)).getText());
         String lozinka = String.valueOf(((EditText) findViewById(R.id.loginLozinka)).getText());
@@ -33,7 +42,9 @@ public class Login extends AppCompatActivity {
             ArrayList<User> users = Common.getAllUsers(this, "users.json");
             for (User u : users) {
                 if (u.getKorisnickoIme().equals(korisnickoIme)) {
-                    // to anotgher page ...
+                    Intent intent = new Intent(this, Index.class);
+                    startActivity(intent);
+                    putInCache(u);
                     return;
                 }
             }

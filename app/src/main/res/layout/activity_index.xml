@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:id="@+id/textSlatki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100px"
+        android:layout_marginBottom="20px"
+        android:fontFamily="@font/island_moments"
+        android:text="Slatki zalogaj"
+        android:textColor="@color/white"
+        android:textSize="200px" />
+
+    <ImageView
+        android:id="@+id/help"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textSlatki"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50px"
+        android:onClick="info"
+        android:src="@drawable/help" />
+
+    <ImageView
+        android:id="@+id/cart"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textSlatki"
+        android:layout_toLeftOf="@id/help"
+        android:layout_marginRight="10px"
+        android:src="@drawable/cart" />
+
+    <ImageView
+        android:id="@+id/ring"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textSlatki"
+        android:layout_toLeftOf="@id/cart"
+        android:layout_marginRight="10px"
+        android:src="@drawable/ring" />
+
+    <ImageView
+        android:id="@+id/account"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textSlatki"
+        android:layout_toLeftOf="@id/ring"
+        android:layout_marginRight="20px"
+        android:onClick="change"
+        android:src="@drawable/account" />
+
+    <TextView
+        android:id="@+id/textPromocije"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ring"
+        android:fontFamily="@font/island_moments"
+        android:text="Promocije:"
+        android:layout_marginLeft="60px"
+        android:textColor="@color/white"
+        android:textSize="150px" />
+
+    <ImageView
+        android:id="@+id/promocija"
+        android:layout_width="wrap_content"
+        android:layout_height="500px"
+        android:layout_marginRight="20px"
+        android:layout_marginLeft="20px"
+        android:layout_below="@id/textPromocije"
+        android:src="@drawable/promocija1" />
+
+    <ImageView
+        android:id="@+id/torte"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_marginTop="120px"
+        android:layout_marginLeft="30px"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/promocija"
+        android:onClick="clickCake"
+        android:src="@drawable/torte" />
+
+    <ImageView
+        android:id="@+id/kolaci"
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:layout_below="@id/promocija"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="120px"
+        android:onClick="clickCookie"
+        android:src="@drawable/kolaci" />
+
+
+
+</RelativeLayout>
