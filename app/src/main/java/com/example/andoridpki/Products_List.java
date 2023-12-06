@@ -2,8 +2,9 @@ package com.example.andoridpki;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
@@ -38,8 +39,22 @@ public class Products_List extends AppCompatActivity {
             imageView.setImageResource(imageResources.get(i));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(20, 20, 20, 20);
+            imageView.setTag(i);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int index = (Integer) v.getTag();
+                    toSelectedProductPage(index, products);
+                }
+            });
             imageView.setAdjustViewBounds(true);
             imageContainer.addView(imageView);
         }
+    }
+
+    private void toSelectedProductPage(int index, ArrayList<Product> products){
+        Intent intent = new Intent(this, SelectedProduct.class);
+        intent.putExtra("selected", products.get(index));
+        startActivity(intent);
     }
 }
