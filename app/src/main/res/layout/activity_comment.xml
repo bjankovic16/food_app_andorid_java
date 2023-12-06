@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textSlatki"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100px"
-        android:layout_marginBottom="20px"
-        android:fontFamily="@font/island_moments"
-        android:text="Slatki zalogaj"
-        android:textColor="@color/white"
-        android:textSize="200px" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textSlatki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100px"
+            android:layout_marginBottom="20px"
+            android:fontFamily="@font/island_moments"
+            android:text="Slatki zalogaj"
+            android:textColor="@color/white"
+            android:textSize="200px" />
+
+        <LinearLayout
+            android:id="@+id/commentsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textSlatki"
+            android:background="@color/white"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/inputComment"
+            android:layout_width="match_parent"
+            android:layout_height="160px"
+            android:layout_below="@id/commentsContainer"
+            android:fontFamily="@font/island_moments"
+            android:textSize="60px"
+            android:background="@color/white"
+            android:paddingLeft="20px"
+            android:layout_marginTop="20px"/>
+        <Button
+            android:id="@+id/buttonKomentarisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inputComment"
+            android:layout_alignParentRight="true"
+            android:text="Komentariši"
+            android:layout_marginTop="25px"
+            android:layout_marginRight="25px"
+            android:onClick="komentarisi" />
+
+    </RelativeLayout>
+</ScrollView>

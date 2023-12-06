@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Naruči"
-        android:layout_marginTop="35px"
+        android:layout_marginTop="25px"
         android:layout_marginRight="100px"
         android:onClick="naruci" />
 
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Komentariši"
-        android:layout_marginTop="35px"
+        android:layout_marginTop="25px"
         android:onClick="komentarisi" />
 
     </LinearLayout>

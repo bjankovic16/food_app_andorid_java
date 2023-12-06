@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class SelectedProduct extends AppCompatActivity {
 
+    private Product product;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,7 @@ public class SelectedProduct extends AppCompatActivity {
 
     private void setData() {
         Intent intent = getIntent();
-        Product product = (Product) intent.getSerializableExtra("selected");
+        product = (Product) intent.getSerializableExtra("selected");
         ImageView image = findViewById(R.id.productId);
         image.setImageResource(getResources().getIdentifier(product.getSlika().substring(0,product.getSlika().length()-4), "drawable", getPackageName()));
         TextView text = findViewById(R.id.multiLineTextView);
@@ -32,7 +33,9 @@ public class SelectedProduct extends AppCompatActivity {
     }
 
     public void komentarisi(View v){
-
+        Intent intent = new Intent(this, Comment.class);
+        intent.putExtra("selected", product);
+        startActivity(intent);
     }
 
 }
