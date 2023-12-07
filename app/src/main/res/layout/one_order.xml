@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#602112">
+
+    <ImageView
+        android:id="@+id/productPicture"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_marginLeft="30px"
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="30px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:id="@+id/textProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:layout_marginBottom="10px"
+        android:layout_toRightOf="@id/productPicture"
+        android:fontFamily="@font/island_moments"
+        android:text="Proizvod1"
+        android:textColor="@color/white"
+        android:textSize="40px" />
+
+    <EditText
+        android:id="@+id/count"
+        android:layout_width="100px"
+        android:layout_height="50px"
+        android:textSize="100px"
+        android:paddingLeft="30px"
+        android:inputType="text"
+        android:layout_toRightOf="@id/productPicture"
+        android:layout_below="@id/textProduct"/>
+
+</RelativeLayout>

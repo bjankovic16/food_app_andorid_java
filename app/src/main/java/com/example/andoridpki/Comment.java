@@ -3,7 +3,9 @@ package com.example.andoridpki;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,6 +13,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Comment extends AppCompatActivity {
     private Product product;
@@ -40,11 +44,17 @@ public class Comment extends AppCompatActivity {
             addComment(comment);
         }
 
-
+        for (String comment: retrieveStringListFromCache()){
+            addComment(comment);
+        }
     }
     public void komentarisi(View view){
         String comment = ((EditText)findViewById(R.id.inputComment)).getText().toString();
         addComment(comment);
+        // adding to cache
+        ArrayList<String> comments = retrieveStringListFromCache();
+        comments.add(comment);
+        saveStringListToCache(comments);
     }
 
     private void addComment(String comment){
@@ -58,4 +68,17 @@ public class Comment extends AppCompatActivity {
         ((EditText)findViewById(R.id.inputComment)).setText("");
     }
 
+    private void saveStringListToCache(ArrayList<String> stringList) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsComments", Context.MODE_PRIVATE);
+        String json = Common.makeJsonFromObject(stringList);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("comments for "+product.getNaziv(), json);
+        editor.apply();
+    }
+
+    private ArrayList<String> retrieveStringListFromCache() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsComments", Context.MODE_PRIVATE);
+        String json = sharedPreferences.getString("comments for "+product.getNaziv(), "[]");
+        return Common.makeCommentsFromJson(json);
+    }
 }

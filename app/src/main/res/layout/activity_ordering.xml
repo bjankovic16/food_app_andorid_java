@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <TextView
+            android:id="@+id/textSlatki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100px"
+            android:layout_marginBottom="20px"
+            android:fontFamily="@font/island_moments"
+            android:text="Slatki zalogaj"
+            android:textColor="@color/white"
+            android:textSize="200px" />
+
+        <TextView
+            android:id="@+id/textOrderNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:layout_below="@id/textSlatki"
+            android:fontFamily="@font/island_moments"
+            android:textColor="@color/white"
+            android:textSize="100px" />
+
+        <LinearLayout
+            android:id="@+id/ordersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textSlatki"
+            android:background="#602112"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50px"
+            android:layout_below="@id/ordersContainer"
+            android:fontFamily="@font/island_moments"
+            android:textColor="@color/white"
+            android:textSize="100px" />
+
+        <Button
+            android:id="@+id/potvrda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Naruči"
+            android:layout_below="@id/textPrice"
+            android:layout_marginTop="20px"
+            android:onClick="order"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</ScrollView>

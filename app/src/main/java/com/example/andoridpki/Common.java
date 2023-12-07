@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,12 @@ public class Common {
     public static User makeUserFromJson(String json) {
         java.lang.reflect.Type listType = new TypeToken<User>() {}.getType();
         return new Gson().fromJson(json,listType);
+    }
+
+    public static ArrayList<String>  makeCommentsFromJson(String json){
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 
     public static void writeIntoFile(Context context, String fileName, Object obj) {
