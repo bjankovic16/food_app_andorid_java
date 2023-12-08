@@ -11,6 +11,7 @@
         android:layout_marginLeft="30px"
         android:layout_marginBottom="30px"
         android:layout_marginTop="30px"
+        android:layout_marginRight="50px"
         android:scaleType="centerCrop"
         android:src="@drawable/background" />
 
@@ -26,6 +27,37 @@
         android:textColor="@color/white"
         android:textSize="40px" />
 
+    <ImageView
+        android:id="@+id/plusIcon"
+        android:layout_width="32px"
+        android:layout_height="32px"
+        android:layout_toLeftOf="@id/count"
+        android:layout_below="@id/textProduct"
+        android:layout_marginBottom="30px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/plus" />
+
+    <ImageView
+        android:id="@+id/minusIcon"
+        android:layout_width="32px"
+        android:layout_height="32px"
+        android:layout_toRightOf="@id/count"
+        android:layout_below="@id/textProduct"
+        android:layout_marginBottom="30px"
+        android:scaleType="centerCrop"
+        android:src="@drawable/minus" />
+
+    <ImageView
+        android:id="@+id/deleteIcon"
+        android:layout_width="32px"
+        android:layout_height="32px"
+        android:layout_toRightOf="@id/minusIcon"
+        android:layout_below="@id/textProduct"
+        android:layout_marginBottom="30px"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20px"
+        android:src="@drawable/delete" />
+
     <EditText
         android:id="@+id/count"
         android:layout_width="100px"
@@ -35,5 +67,18 @@
         android:inputType="text"
         android:layout_toRightOf="@id/productPicture"
         android:layout_below="@id/textProduct"/>
+
+    <TextView
+        android:id="@+id/textCena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:layout_marginBottom="10px"
+        android:layout_below="@id/count"
+        android:layout_toRightOf="@id/productPicture"
+        android:fontFamily="@font/island_moments"
+        android:text="Proizvod1"
+        android:textColor="@color/white"
+        android:textSize="40px" />
 
 </RelativeLayout>

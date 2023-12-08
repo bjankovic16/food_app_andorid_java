@@ -32,6 +32,12 @@ public class Common {
         return gson.fromJson(json, type);
     }
 
+    public static ArrayList<Order>  makeOrdersFromJson(String json){
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Order>>() {}.getType();
+        return gson.fromJson(json, type);
+    }
+
     public static void writeIntoFile(Context context, String fileName, Object obj) {
         Gson gson = new Gson();
         String jsonString = gson.toJson(obj);

@@ -3,6 +3,7 @@ package com.example.andoridpki;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -24,6 +25,9 @@ public class Index extends AppCompatActivity {
         imageView = findViewById(R.id.promocija);
         handler = new Handler();
         startImageSwitching();
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String json = preferences.getString("user", "");
+        user = Common.makeUserFromJson(json);
     }
 
     private void startImageSwitching() {
@@ -54,12 +58,14 @@ public class Index extends AppCompatActivity {
     public void clickCake(View view) {
         Intent intent = new Intent(this, Products_List.class);
         intent.putExtra("showing","cakes.json");
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 
     public void clickCookie(View view) {
         Intent intent = new Intent(this, Products_List.class);
         intent.putExtra("showing","cookies.json");
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 

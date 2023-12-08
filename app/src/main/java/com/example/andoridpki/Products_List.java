@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Products_List extends AppCompatActivity {
 
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class Products_List extends AppCompatActivity {
     private void getContent(){
         Intent intent = getIntent();
         String fileName = intent.getStringExtra("showing");
-
+        user = (User) intent.getSerializableExtra("user");
         LinearLayout imageContainer = findViewById(R.id.imageContainer);
         ArrayList<Product> products = Common.getAllProducts(this, fileName);
 
@@ -55,6 +56,7 @@ public class Products_List extends AppCompatActivity {
     private void toSelectedProductPage(int index, ArrayList<Product> products){
         Intent intent = new Intent(this, SelectedProduct.class);
         intent.putExtra("selected", products.get(index));
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 }
