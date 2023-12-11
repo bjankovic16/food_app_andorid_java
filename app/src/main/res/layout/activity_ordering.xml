@@ -9,7 +9,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="400px"
             android:scaleType="centerCrop"
             android:src="@drawable/background" />
 
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textSlatki"
-            android:background="#602112"
+            android:background="@color/white"
             android:orientation="vertical">
         </LinearLayout>
 
@@ -50,9 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50px"
+            android:text="Nema ničega u korpi"
             android:layout_below="@id/ordersContainer"
             android:fontFamily="@font/island_moments"
-            android:textColor="@color/white"
+            android:textColor="#602112"
             android:textSize="100px" />
 
         <Button
@@ -62,6 +63,7 @@
             android:text="Naruči"
             android:layout_below="@id/textPrice"
             android:layout_marginTop="20px"
+            android:layout_marginBottom="20px"
             android:onClick="order"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>

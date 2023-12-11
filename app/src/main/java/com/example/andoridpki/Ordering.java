@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ public class Ordering extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordering);
+        getSupportActionBar().hide();
 
         Intent intent = getIntent();
         product = (Product) intent.getSerializableExtra("selected");
@@ -41,6 +44,7 @@ public class Ordering extends AppCompatActivity {
 
     private void setData(){
         LinearLayout ordersContainer = findViewById(R.id.ordersContainer);
+        int bill = 0;
         for (int i = 0; i < orders.size(); i++) {
             View orderView = LayoutInflater.from(this).inflate(R.layout.one_order, null);
             ImageView productPicture = orderView.findViewById(R.id.productPicture);
@@ -52,13 +56,27 @@ public class Ordering extends AppCompatActivity {
             textProduct.setText(orders.get(i).getProduct().getNaziv());
 
             TextView textCena = orderView.findViewById(R.id.textCena);
-            textCena.setText(String.valueOf(orders.get(i).getProduct().getCena()));
+            textCena.setText("Cena: "+ String.valueOf(orders.get(i).getProduct().getCena()) + " din");
 
             EditText count = orderView.findViewById(R.id.count);
             count.setText(String.valueOf(orders.get(i).getAmount()));
 
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(10, 25, 10, 25);
+            orderView.setLayoutParams(layoutParams);
+            bill += orders.get(i).getAmount() * orders.get(i).getProduct().getCena();
             ordersContainer.addView(orderView);
         }
+        TextView textCena = findViewById(R.id.textPrice);
+        textCena.setText("Cena ukupno: "+ bill + " din");
+    }
+
+    private int getPrice(String price){
+        String str = price.substring(13, price.length()-4);
+        return Integer.parseInt(str);
     }
 
     private void saveOrdersListToCache(ArrayList<Order> ordersList, User user) {
@@ -75,7 +93,77 @@ public class Ordering extends AppCompatActivity {
         return Common.makeOrdersFromJson(json);
     }
 
-    public void order(View view) {
+    public void plus(View view) {
+        LinearLayout linearLayout = findViewById(R.id.ordersContainer);
+        View parent1 = (View) view.getParent();
+        View parent2 = (View) parent1.getParent();
+        int index = linearLayout.indexOfChild((View) parent2.getParent());
 
+        RelativeLayout child = (RelativeLayout) linearLayout.getChildAt(index);
+        LinearLayout child1 = child.findViewById(R.id.par1);
+        LinearLayout child2 = child1.findViewById(R.id.par2);
+
+        EditText count = child2.findViewById(R.id.count);
+        int curVal = Integer.parseInt(String.valueOf(count.getText()));
+        count.setText(String.valueOf(curVal + 1));
+        orders.get(index).setAmount(curVal + 1);
+
+        TextView textCena = findViewById(R.id.textPrice);
+        int bill = getPrice((String) textCena.getText());
+        textCena.setText("Cena ukupno: "+ (bill + orders.get(index).getProduct().getCena()) + " din");
+    }
+
+    public void minus(View view) {
+        LinearLayout linearLayout = findViewById(R.id.ordersContainer);
+        View parent1 = (View) view.getParent();
+        View parent2 = (View) parent1.getParent();
+        int index = linearLayout.indexOfChild((View) parent2.getParent());
+
+        RelativeLayout child = (RelativeLayout) linearLayout.getChildAt(index);
+        LinearLayout child1 = child.findViewById(R.id.par1);
+        LinearLayout child2 = child1.findViewById(R.id.par2);
+
+        EditText count = child2.findViewById(R.id.count);
+        int curVal = Integer.parseInt(String.valueOf(count.getText()));
+        if(curVal != 1) {
+            count.setText(String.valueOf(curVal - 1));
+            orders.get(index).setAmount(curVal - 1);
+
+            TextView textCena = findViewById(R.id.textPrice);
+            int bill = getPrice((String) textCena.getText());
+            textCena.setText("Cena ukupno: "+ (bill - orders.get(index).getProduct().getCena()) + " din");
+        }
+    }
+
+    public void erase(View view) {
+        LinearLayout linearLayout = findViewById(R.id.ordersContainer);
+        View parent1 = (View) view.getParent();
+        View parent2 = (View) parent1.getParent();
+        int index = linearLayout.indexOfChild((View) parent2.getParent());
+        RelativeLayout child = (RelativeLayout) linearLayout.getChildAt(index);
+        LinearLayout child1 = child.findViewById(R.id.par1);
+        LinearLayout child2 = child1.findViewById(R.id.par2);
+
+        EditText count = child2.findViewById(R.id.count);
+        int curVal = Integer.parseInt(String.valueOf(count.getText()));
+
+        linearLayout.removeView(child);
+
+        TextView textCena = findViewById(R.id.textPrice);
+        int bill = getPrice((String) textCena.getText());
+
+        if(bill - orders.get(index).getProduct().getCena() * curVal != 0){
+            textCena.setText("Cena ukupno: "+ (bill - orders.get(index).getProduct().getCena() * curVal) + " din");
+        } else{
+            textCena.setText("Nema ničega u korpi.");
+        }
+        orders.remove(index);
+    }
+
+    public void order(View view) {
+        TextView textCena = findViewById(R.id.textPrice);
+        if(textCena.getText().equals("Nema ničega u korpi.")) {
+            Toast.makeText(this,"Nemoguće poručiti.",Toast.LENGTH_SHORT).show();
+        }
     }
 }
