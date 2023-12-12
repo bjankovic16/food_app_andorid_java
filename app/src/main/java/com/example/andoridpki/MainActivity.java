@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void initProducts(){
-        if(Common.doesFileExist(this, "cakes.json")){
+    public void initProducts() {
+        if (Common.doesFileExist(this, "cakes.json")) {
             return;
         }
         ArrayList<Product> cookies = new ArrayList<>();

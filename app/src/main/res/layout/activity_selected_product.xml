@@ -25,44 +25,44 @@
         android:id="@+id/productId"
         android:layout_width="match_parent"
         android:layout_height="1000px"
-        android:scaleType="fitXY"
+        android:layout_below="@id/textSlatki"
         android:adjustViewBounds="true"
-        android:layout_below="@id/textSlatki"/>
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/multiLineTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/productId"
         android:background="@color/white"
         android:fontFamily="@font/island_moments"
-        android:textSize="80px"
         android:paddingLeft="25px"
-        android:layout_below="@id/productId"/>
+        android:textSize="80px" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/multiLineTextView"
         android:layout_centerVertical="true"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonNaruci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Naruči"
-        android:layout_marginTop="25px"
-        android:layout_marginRight="100px"
-        android:onClick="naruci" />
+        <Button
+            android:id="@+id/buttonNaruci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25px"
+            android:layout_marginRight="100px"
+            android:onClick="naruci"
+            android:text="Naruči" />
 
-    <Button
-        android:id="@+id/buttonKomentarisi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Komentariši"
-        android:layout_marginTop="25px"
-        android:onClick="komentarisi" />
+        <Button
+            android:id="@+id/buttonKomentarisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25px"
+            android:onClick="komentarisi"
+            android:text="Komentariši" />
 
     </LinearLayout>
 

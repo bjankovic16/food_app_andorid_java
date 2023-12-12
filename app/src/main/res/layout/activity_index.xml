@@ -36,8 +36,9 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_below="@+id/textSlatki"
-        android:layout_toLeftOf="@id/help"
         android:layout_marginRight="10px"
+        android:layout_toLeftOf="@id/help"
+        android:onClick="order"
         android:src="@drawable/cart" />
 
     <ImageView
@@ -45,8 +46,9 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_below="@+id/textSlatki"
-        android:layout_toLeftOf="@id/cart"
         android:layout_marginRight="10px"
+        android:layout_toLeftOf="@id/cart"
+        android:onClick="notification"
         android:src="@drawable/ring" />
 
     <ImageView
@@ -54,8 +56,8 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_below="@+id/textSlatki"
-        android:layout_toLeftOf="@id/ring"
         android:layout_marginRight="20px"
+        android:layout_toLeftOf="@id/ring"
         android:onClick="change"
         android:src="@drawable/account" />
 
@@ -64,9 +66,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ring"
+        android:layout_marginLeft="60px"
         android:fontFamily="@font/island_moments"
         android:text="Promocije:"
-        android:layout_marginLeft="60px"
         android:textColor="@color/white"
         android:textSize="150px" />
 
@@ -74,19 +76,19 @@
         android:id="@+id/promocija"
         android:layout_width="wrap_content"
         android:layout_height="500px"
-        android:layout_marginRight="20px"
-        android:layout_marginLeft="20px"
         android:layout_below="@id/textPromocije"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:src="@drawable/promocija1" />
 
     <ImageView
         android:id="@+id/torte"
         android:layout_width="500px"
         android:layout_height="500px"
-        android:layout_marginTop="120px"
-        android:layout_marginLeft="30px"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/promocija"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="120px"
         android:onClick="clickCake"
         android:src="@drawable/torte" />
 
@@ -96,11 +98,10 @@
         android:layout_height="500px"
         android:layout_below="@id/promocija"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="30px"
         android:layout_marginTop="120px"
+        android:layout_marginRight="30px"
         android:onClick="clickCookie"
         android:src="@drawable/kolaci" />
-
 
 
 </RelativeLayout>

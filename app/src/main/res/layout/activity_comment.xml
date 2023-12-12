@@ -31,29 +31,29 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textSlatki"
             android:background="@color/white"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
         <EditText
             android:id="@+id/inputComment"
             android:layout_width="match_parent"
             android:layout_height="160px"
             android:layout_below="@id/commentsContainer"
-            android:fontFamily="@font/island_moments"
-            android:textSize="60px"
+            android:layout_marginTop="20px"
             android:background="@color/white"
+            android:fontFamily="@font/island_moments"
             android:paddingLeft="20px"
-            android:layout_marginTop="20px"/>
+            android:textSize="60px" />
+
         <Button
             android:id="@+id/buttonKomentarisi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/inputComment"
             android:layout_alignParentRight="true"
-            android:text="Komentariši"
             android:layout_marginTop="25px"
             android:layout_marginRight="25px"
-            android:onClick="komentarisi" />
+            android:onClick="komentarisi"
+            android:text="Komentariši" />
 
     </RelativeLayout>
 </ScrollView>

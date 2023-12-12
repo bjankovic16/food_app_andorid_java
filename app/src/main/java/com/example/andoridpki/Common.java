@@ -1,6 +1,7 @@
 package com.example.andoridpki;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -16,25 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Common {
-    public static String makeJsonFromObject(Object obj){
+    public static String makeJsonFromObject(Object obj) {
         Gson gson = new Gson();
         return gson.toJson(obj);
     }
 
     public static User makeUserFromJson(String json) {
-        java.lang.reflect.Type listType = new TypeToken<User>() {}.getType();
-        return new Gson().fromJson(json,listType);
+        java.lang.reflect.Type listType = new TypeToken<User>() {
+        }.getType();
+        return new Gson().fromJson(json, listType);
     }
 
-    public static ArrayList<String>  makeCommentsFromJson(String json){
+    public static ArrayList<String> makeCommentsFromJson(String json) {
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        Type type = new TypeToken<ArrayList<String>>() {
+        }.getType();
         return gson.fromJson(json, type);
     }
 
-    public static ArrayList<Order>  makeOrdersFromJson(String json){
+    public static ArrayList<Order> makeOrdersFromJson(String json) {
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<Order>>() {}.getType();
+        Type type = new TypeToken<ArrayList<Order>>() {
+        }.getType();
         return gson.fromJson(json, type);
     }
 
@@ -54,7 +58,7 @@ public class Common {
         }
     }
 
-    public static boolean doesFileExist(Context context, String fileName){
+    public static boolean doesFileExist(Context context, String fileName) {
         File path = context.getFilesDir();
         File file = new File(path, fileName);
         return file.exists();
@@ -62,14 +66,16 @@ public class Common {
 
     public static ArrayList<User> getAllUsers(Context context, String fileName) {
         String readData = readFromFile(context, fileName);
-        java.lang.reflect.Type listType = new TypeToken<List<User>>() {}.getType();
+        java.lang.reflect.Type listType = new TypeToken<List<User>>() {
+        }.getType();
         ArrayList<User> personList = new Gson().fromJson(readData, listType);
-        return personList==null ? new ArrayList<>() : personList;
+        return personList == null ? new ArrayList<>() : personList;
     }
 
     public static ArrayList<Product> getAllProducts(Context context, String fileName) {
         String readData = readFromFile(context, fileName);
-        java.lang.reflect.Type listType = new TypeToken<List<Product>>() {}.getType();
+        java.lang.reflect.Type listType = new TypeToken<List<Product>>() {
+        }.getType();
         ArrayList<Product> products = new Gson().fromJson(readData, listType);
         return products;
     }
@@ -89,4 +95,10 @@ public class Common {
         return jsonStringBuilder.toString();
     }
 
+    public static ArrayList<Integer> makeBillsFromJson(String json) {
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Integer>>() {
+        }.getType();
+        return gson.fromJson(json, type);
+    }
 }

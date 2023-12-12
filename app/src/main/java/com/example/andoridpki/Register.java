@@ -28,11 +28,11 @@ public class Register extends AppCompatActivity {
         String lozinka = String.valueOf(((EditText) findViewById(R.id.lozinka)).getText());
 
         if (ime.equals("") || prezime.equals("") || telefon.equals("") || adresa.equals("") ||
-                korisnickoIme.equals("") || lozinka.equals("")){
+                korisnickoIme.equals("") || lozinka.equals("")) {
             Toast.makeText(Register.this, "Nisu uneti svi podaci!", Toast.LENGTH_SHORT).show();
-        }else {
-            ArrayList<User> users = Common.getAllUsers(this,"users.json");
-            for (User u:users) {
+        } else {
+            ArrayList<User> users = Common.getAllUsers(this, "users.json");
+            for (User u : users) {
                 if (u.getKorisnickoIme().equals(korisnickoIme)) {
                     Toast.makeText(Register.this, "Postoji korisnik sa istim korisničkim imenom!", Toast.LENGTH_SHORT).show();
                     return;

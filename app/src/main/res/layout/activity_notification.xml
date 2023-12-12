@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -30,45 +29,22 @@
                 android:textColor="@color/white"
                 android:textSize="200px" />
 
-            <TextView
-                android:id="@+id/textOrderNumber"
+            <ImageView
+                android:id="@+id/notification_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textSlatki"
-                android:layout_marginTop="50px"
-                android:fontFamily="@font/island_moments"
-                android:textColor="@color/white"
-                android:textSize="100px" />
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/notification_info" />
 
             <LinearLayout
-                android:id="@+id/ordersContainer"
+                android:id="@+id/billsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textSlatki"
+                android:layout_below="@id/notification_info"
+                android:layout_marginTop="30px"
                 android:orientation="vertical"></LinearLayout>
-
-            <TextView
-                android:id="@+id/textPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ordersContainer"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50px"
-                android:fontFamily="@font/island_moments"
-                android:text="Nema ničega u korpi"
-                android:textColor="@color/white"
-                android:textSize="100px" />
-
-            <Button
-                android:id="@+id/potvrda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textPrice"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20px"
-                android:layout_marginBottom="20px"
-                android:onClick="order"
-                android:text="Naruči" />
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>

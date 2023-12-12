@@ -9,27 +9,27 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background" />
 
-    <TextView
+    <TextViews
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registracija korisnika"
-        android:textSize="140px"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="240px"
         android:fontFamily="@font/island_moments"
-        android:textColor="@color/white" />
+        android:text="Registracija korisnika"
+        android:textColor="@color/white"
+        android:textSize="140px" />
 
     <TextView
         android:id="@+id/labelIme"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Ime: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="600px"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Ime: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/ime"
@@ -41,11 +41,11 @@
         android:layout_marginEnd="13dp"
         android:layout_marginRight="40px"
         android:layout_toRightOf="@id/labelIme"
-        android:paddingBottom="0px"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/island_moments"
         android:inputType="text"
         android:paddingLeft="30px"
+        android:paddingBottom="0px"
         android:textColor="@color/white"
         android:textSize="100px" />
 
@@ -53,153 +53,153 @@
         android:id="@+id/labelPrezime"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Prezime: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
         android:layout_below="@id/labelIme"
+        android:layout_alignParentStart="true"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Prezime: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/prezime"
         android:layout_width="0dp"
         android:layout_height="130px"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/labelPrezime"
         android:layout_below="@id/ime"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40px"
+        android:layout_toRightOf="@id/labelPrezime"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:inputType="text"
         android:fontFamily="@font/island_moments"
-        android:textSize="100px"
+        android:inputType="text"
         android:paddingLeft="30px"
         android:paddingBottom="0px"
-        android:layout_marginRight="40px" />
+        android:textColor="@color/white"
+        android:textSize="100px" />
 
     <TextView
         android:id="@+id/labelTelefon"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Telefon: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
         android:layout_below="@id/labelPrezime"
+        android:layout_alignParentStart="true"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Telefon: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/telefon"
         android:layout_width="0dp"
         android:layout_height="130px"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/labelTelefon"
         android:layout_below="@id/prezime"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40px"
+        android:layout_toRightOf="@id/labelTelefon"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:inputType="text"
         android:fontFamily="@font/island_moments"
-        android:textSize="100px"
+        android:inputType="text"
         android:paddingLeft="30px"
         android:paddingBottom="0px"
-        android:layout_marginRight="40px" />
+        android:textColor="@color/white"
+        android:textSize="100px" />
 
     <TextView
         android:id="@+id/labelAdresa"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Adresa: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
         android:layout_below="@id/labelTelefon"
+        android:layout_alignParentStart="true"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Adresa: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/adresa"
         android:layout_width="0dp"
         android:layout_height="130px"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/labelAdresa"
         android:layout_below="@id/labelTelefon"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40px"
+        android:layout_toRightOf="@id/labelAdresa"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:inputType="text"
         android:fontFamily="@font/island_moments"
-        android:textSize="100px"
+        android:inputType="text"
         android:paddingLeft="30px"
         android:paddingBottom="0px"
-        android:layout_marginRight="40px" />
+        android:textColor="@color/white"
+        android:textSize="100px" />
 
 
     <TextView
         android:id="@+id/labelKorisnik"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Korisničko ime: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
         android:layout_below="@id/labelAdresa"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="60px"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Korisničko ime: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/korisnickoIme"
         android:layout_width="0dp"
         android:layout_height="130px"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/labelKorisnik"
         android:layout_below="@id/labelAdresa"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:inputType="text"
-        android:fontFamily="@font/island_moments"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="60px"
-        android:textSize="100px"
+        android:layout_marginRight="40px"
+        android:layout_toRightOf="@id/labelKorisnik"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/island_moments"
+        android:inputType="text"
         android:paddingLeft="30px"
         android:paddingBottom="0px"
-        android:layout_marginRight="40px" />
+        android:textColor="@color/white"
+        android:textSize="100px" />
 
     <TextView
         android:id="@+id/labelLozinka"
         android:layout_width="wrap_content"
         android:layout_height="130px"
-        android:text="Lozinka: "
-        android:textSize="100px"
-        android:paddingLeft="40px"
         android:layout_below="@id/labelKorisnik"
+        android:layout_alignParentStart="true"
         android:fontFamily="@font/island_moments"
+        android:paddingLeft="40px"
+        android:text="Lozinka: "
         android:textColor="@color/white"
-        android:layout_alignParentStart="true"/>
+        android:textSize="100px" />
 
     <EditText
         android:id="@+id/lozinka"
         android:layout_width="0dp"
         android:layout_height="130px"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@id/labelLozinka"
         android:layout_below="@id/labelKorisnik"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40px"
+        android:layout_toRightOf="@id/labelLozinka"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:inputType="text"
         android:fontFamily="@font/island_moments"
-        android:textSize="100px"
+        android:inputType="text"
         android:paddingLeft="30px"
         android:paddingBottom="0px"
-        android:layout_marginRight="40px" />
+        android:textColor="@color/white"
+        android:textSize="100px" />
 
 
     <Button
         android:id="@+id/potvrda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Potvrda unosa"
         android:layout_below="@id/lozinka"
-        android:layout_marginTop="100px"
         android:layout_centerHorizontal="true"
-        android:onClick="registerUser"/>
+        android:layout_marginTop="100px"
+        android:onClick="registerUser"
+        android:text="Potvrda unosa" />
 </RelativeLayout>

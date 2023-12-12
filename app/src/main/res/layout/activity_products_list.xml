@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/background" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textSlatki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100px"
-            android:layout_marginBottom="20px"
-            android:fontFamily="@font/island_moments"
-            android:text="Slatki zalogaj"
-            android:textColor="@color/white"
-            android:textSize="200px" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/background" />
 
-        <LinearLayout
-            android:id="@+id/imageContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textSlatki"
-            android:background="#602112"
-            android:orientation="vertical">
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textSlatki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100px"
+                android:layout_marginBottom="20px"
+                android:fontFamily="@font/island_moments"
+                android:text="Slatki zalogaj"
+                android:textColor="@color/white"
+                android:textSize="200px" />
 
-    </RelativeLayout>
-</ScrollView>
+            <LinearLayout
+                android:id="@+id/imageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textSlatki"
+                android:orientation="vertical"></LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

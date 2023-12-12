@@ -55,16 +55,28 @@ public class Index extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void order(View view) {
+        Intent intent = new Intent(this, Ordering.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
+    }
+
+    public void notification(View view) {
+        Intent intent = new Intent(this, Notification.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
+    }
+
     public void clickCake(View view) {
         Intent intent = new Intent(this, Products_List.class);
-        intent.putExtra("showing","cakes.json");
+        intent.putExtra("showing", "cakes.json");
         intent.putExtra("user", user);
         startActivity(intent);
     }
 
     public void clickCookie(View view) {
         Intent intent = new Intent(this, Products_List.class);
-        intent.putExtra("showing","cookies.json");
+        intent.putExtra("showing", "cookies.json");
         intent.putExtra("user", user);
         startActivity(intent);
     }

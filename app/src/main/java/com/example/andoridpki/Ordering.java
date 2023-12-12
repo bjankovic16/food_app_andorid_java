@@ -22,6 +22,7 @@ public class Ordering extends AppCompatActivity {
     private Product product;
     private User user;
     private ArrayList<Order> orders;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,9 @@ public class Ordering extends AppCompatActivity {
         product = (Product) intent.getSerializableExtra("selected");
         user = (User) intent.getSerializableExtra("user");
         orders = retrieveStringListFromCache(user);
-        orders.add(new Order(product,1));
+        if (product != null) {
+            orders.add(new Order(product, 1));
+        }
         setData();
     }
 
@@ -42,21 +45,21 @@ public class Ordering extends AppCompatActivity {
         saveOrdersListToCache(orders, user);
     }
 
-    private void setData(){
+    private void setData() {
         LinearLayout ordersContainer = findViewById(R.id.ordersContainer);
         int bill = 0;
         for (int i = 0; i < orders.size(); i++) {
             View orderView = LayoutInflater.from(this).inflate(R.layout.one_order, null);
             ImageView productPicture = orderView.findViewById(R.id.productPicture);
             int picLen = orders.get(i).getProduct().getSlika().length();
-            String pictureName = orders.get(i).getProduct().getSlika().substring(0, picLen-4);
+            String pictureName = orders.get(i).getProduct().getSlika().substring(0, picLen - 4);
             productPicture.setImageResource(getResources().getIdentifier(pictureName, "drawable", getPackageName()));
 
             TextView textProduct = orderView.findViewById(R.id.textProduct);
             textProduct.setText(orders.get(i).getProduct().getNaziv());
 
             TextView textCena = orderView.findViewById(R.id.textCena);
-            textCena.setText("Cena: "+ String.valueOf(orders.get(i).getProduct().getCena()) + " din");
+            textCena.setText("Cena: " + orders.get(i).getProduct().getCena() + " din");
 
             EditText count = orderView.findViewById(R.id.count);
             count.setText(String.valueOf(orders.get(i).getAmount()));
@@ -71,11 +74,15 @@ public class Ordering extends AppCompatActivity {
             ordersContainer.addView(orderView);
         }
         TextView textCena = findViewById(R.id.textPrice);
-        textCena.setText("Cena ukupno: "+ bill + " din");
+        if (bill != 0) {
+            textCena.setText("Cena ukupno: " + bill + " din");
+        } else {
+            textCena.setText("Nema ničega u korpi.");
+        }
     }
 
-    private int getPrice(String price){
-        String str = price.substring(13, price.length()-4);
+    private int getPrice(String price) {
+        String str = price.substring(13, price.length() - 4);
         return Integer.parseInt(str);
     }
 
@@ -83,14 +90,28 @@ public class Ordering extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsOrders", Context.MODE_PRIVATE);
         String json = Common.makeJsonFromObject(ordersList);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("orders for "+user.getKorisnickoIme(), json);
+        editor.putString("orders for " + user.getKorisnickoIme(), json);
         editor.apply();
     }
 
     private ArrayList<Order> retrieveStringListFromCache(User user) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsOrders", Context.MODE_PRIVATE);
-        String json = sharedPreferences.getString("orders for "+user.getKorisnickoIme(), "[]");
+        String json = sharedPreferences.getString("orders for " + user.getKorisnickoIme(), "[]");
         return Common.makeOrdersFromJson(json);
+    }
+
+    private void saveUserBillsToCache(ArrayList<Integer> bills, User user) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsBills", Context.MODE_PRIVATE);
+        String json = Common.makeJsonFromObject(bills);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("bills for " + user.getKorisnickoIme(), json);
+        editor.apply();
+    }
+
+    private ArrayList<Integer> retrieveBillsFromCache(User user) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsBills", Context.MODE_PRIVATE);
+        String json = sharedPreferences.getString("bills for " + user.getKorisnickoIme(), "[]");
+        return Common.makeBillsFromJson(json);
     }
 
     public void plus(View view) {
@@ -110,7 +131,7 @@ public class Ordering extends AppCompatActivity {
 
         TextView textCena = findViewById(R.id.textPrice);
         int bill = getPrice((String) textCena.getText());
-        textCena.setText("Cena ukupno: "+ (bill + orders.get(index).getProduct().getCena()) + " din");
+        textCena.setText("Cena ukupno: " + (bill + orders.get(index).getProduct().getCena()) + " din");
     }
 
     public void minus(View view) {
@@ -125,13 +146,13 @@ public class Ordering extends AppCompatActivity {
 
         EditText count = child2.findViewById(R.id.count);
         int curVal = Integer.parseInt(String.valueOf(count.getText()));
-        if(curVal != 1) {
+        if (curVal != 1) {
             count.setText(String.valueOf(curVal - 1));
             orders.get(index).setAmount(curVal - 1);
 
             TextView textCena = findViewById(R.id.textPrice);
             int bill = getPrice((String) textCena.getText());
-            textCena.setText("Cena ukupno: "+ (bill - orders.get(index).getProduct().getCena()) + " din");
+            textCena.setText("Cena ukupno: " + (bill - orders.get(index).getProduct().getCena()) + " din");
         }
     }
 
@@ -152,9 +173,9 @@ public class Ordering extends AppCompatActivity {
         TextView textCena = findViewById(R.id.textPrice);
         int bill = getPrice((String) textCena.getText());
 
-        if(bill - orders.get(index).getProduct().getCena() * curVal != 0){
-            textCena.setText("Cena ukupno: "+ (bill - orders.get(index).getProduct().getCena() * curVal) + " din");
-        } else{
+        if (bill - orders.get(index).getProduct().getCena() * curVal != 0) {
+            textCena.setText("Cena ukupno: " + (bill - orders.get(index).getProduct().getCena() * curVal) + " din");
+        } else {
             textCena.setText("Nema ničega u korpi.");
         }
         orders.remove(index);
@@ -162,8 +183,17 @@ public class Ordering extends AppCompatActivity {
 
     public void order(View view) {
         TextView textCena = findViewById(R.id.textPrice);
-        if(textCena.getText().equals("Nema ničega u korpi.")) {
-            Toast.makeText(this,"Nemoguće poručiti.",Toast.LENGTH_SHORT).show();
+        if (textCena.getText().equals("Nema ničega u korpi.")) {
+            Toast.makeText(this, "Nemoguće poručiti.", Toast.LENGTH_SHORT).show();
+        } else {
+            int bill = getPrice((String) textCena.getText());
+            ArrayList<Integer> bills = retrieveBillsFromCache(user);
+            bills.add(bill);
+            saveUserBillsToCache(bills, user);
+            LinearLayout linearLayout = findViewById(R.id.ordersContainer);
+            linearLayout.removeAllViews();
+            orders.clear();
+            textCena.setText("Nema ničega u korpi.");
         }
     }
 }

@@ -23,28 +23,28 @@
         android:id="@+id/registracija"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registracija"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:fontFamily="@font/island_moments"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:textSize="130px"
+        android:fontFamily="@font/island_moments"
+        android:onClick="Registration"
+        android:text="Registracija"
         android:textColor="@color/white"
-        android:onClick="Registration" />
+        android:textSize="130px" />
 
     <TextView
         android:id="@+id/prijava"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prijava"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:fontFamily="@font/island_moments"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:textSize="130px"
+        android:fontFamily="@font/island_moments"
+        android:onClick="Login"
+        android:text="Prijava"
         android:textColor="@color/white"
-        android:onClick="Login" />
+        android:textSize="130px" />
 
 </RelativeLayout>

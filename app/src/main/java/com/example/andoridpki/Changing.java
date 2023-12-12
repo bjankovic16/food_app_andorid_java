@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Changing extends AppCompatActivity {
 
     private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +37,15 @@ public class Changing extends AppCompatActivity {
         putInCache(user);
     }
 
-    private void putInCache(User user){
+    private void putInCache(User user) {
         String json = Common.makeJsonFromObject(user);
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("user", json);
         editor.apply();
     }
-    private void setText(){
+
+    private void setText() {
         EditText ime = findViewById(R.id.ime);
         ime.setText(user.getIme());
         EditText prezime = findViewById(R.id.prezime);
@@ -58,7 +60,7 @@ public class Changing extends AppCompatActivity {
         lozinka.setText(user.getLozinka());
     }
 
-    public void changeData(View view){
+    public void changeData(View view) {
         String ime = String.valueOf(((EditText) findViewById(R.id.ime)).getText());
         String prezime = String.valueOf(((EditText) findViewById(R.id.prezime)).getText());
         String telefon = String.valueOf(((EditText) findViewById(R.id.telefon)).getText());
@@ -66,11 +68,11 @@ public class Changing extends AppCompatActivity {
         String lozinka = String.valueOf(((EditText) findViewById(R.id.lozinka)).getText());
         String korisnickoIme = String.valueOf(((EditText) findViewById(R.id.korisnickoIme)).getText());
 
-        if (ime.equals("") || prezime.equals("") || telefon.equals("") || adresa.equals("") || lozinka.equals("")){
+        if (ime.equals("") || prezime.equals("") || telefon.equals("") || adresa.equals("") || lozinka.equals("")) {
             Toast.makeText(Changing.this, "Nisu uneti svi podaci!", Toast.LENGTH_SHORT).show();
-        }else {
-            ArrayList<User> users = Common.getAllUsers(this,"users.json");
-            for(int i = 0; i < users.size(); i++){
+        } else {
+            ArrayList<User> users = Common.getAllUsers(this, "users.json");
+            for (int i = 0; i < users.size(); i++) {
                 if (users.get(i).getKorisnickoIme().equals(korisnickoIme)) {
                     Toast.makeText(Changing.this, "Uspesno promenjeni podaci!", Toast.LENGTH_SHORT).show();
                     user = new User(ime, prezime, telefon, adresa, korisnickoIme, lozinka);

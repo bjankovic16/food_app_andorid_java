@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import java.util.ArrayList;
 
 public class Products_List extends AppCompatActivity {
 
     private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,7 @@ public class Products_List extends AppCompatActivity {
         getContent();
     }
 
-    private void getContent(){
+    private void getContent() {
         Intent intent = getIntent();
         String fileName = intent.getStringExtra("showing");
         user = (User) intent.getSerializableExtra("user");
@@ -28,8 +30,8 @@ public class Products_List extends AppCompatActivity {
         ArrayList<Product> products = Common.getAllProducts(this, fileName);
 
         ArrayList<Integer> imageResources = new ArrayList<>();
-        for(Product product: products){
-            imageResources.add(getResources().getIdentifier(product.getSlika().substring(0,product.getSlika().length()-4), "drawable", getPackageName()));
+        for (Product product : products) {
+            imageResources.add(getResources().getIdentifier(product.getSlika().substring(0, product.getSlika().length() - 4), "drawable", getPackageName()));
         }
 
         for (int i = 0; i < imageResources.size(); i++) {
@@ -53,7 +55,7 @@ public class Products_List extends AppCompatActivity {
         }
     }
 
-    private void toSelectedProductPage(int index, ArrayList<Product> products){
+    private void toSelectedProductPage(int index, ArrayList<Product> products) {
         Intent intent = new Intent(this, SelectedProduct.class);
         intent.putExtra("selected", products.get(index));
         intent.putExtra("user", user);

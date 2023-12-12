@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void putInCache(User user){
+    private void putInCache(User user) {
         String json = Common.makeJsonFromObject(user);
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
