@@ -53,6 +53,10 @@ public class Notification extends AppCompatActivity {
             billView.setLayoutParams(layoutParams);
             billsContainer.addView(billView);
         }
+        if (bills.size() == 0){
+            TextView textNema = findViewById(R.id.textNema);
+            textNema.setText("Trenutno nema porudžbina.");
+        }
     }
 
     private ArrayList<Integer> retrieveBillsFromCache(User user) {

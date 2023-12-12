@@ -38,6 +38,18 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/notification_info" />
 
+            <TextView
+                android:id="@+id/textNema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100px"
+                android:layout_marginBottom="20px"
+                android:fontFamily="@font/island_moments"
+                android:textColor="@color/white"
+                android:layout_below="@id/notification_info"
+                android:textSize="100px" />
+
             <LinearLayout
                 android:id="@+id/billsContainer"
                 android:layout_width="match_parent"
