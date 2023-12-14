@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -77,6 +78,8 @@ public class Ordering extends AppCompatActivity {
         if (bill != 0) {
             textCena.setText("Cena ukupno: " + bill + " din");
         } else {
+            Button naruciButton = findViewById(R.id.potvrda);
+            naruciButton.setVisibility(View.INVISIBLE);
             textCena.setText("Nema ničega u korpi.");
         }
     }
@@ -183,17 +186,15 @@ public class Ordering extends AppCompatActivity {
 
     public void order(View view) {
         TextView textCena = findViewById(R.id.textPrice);
-        if (textCena.getText().equals("Nema ničega u korpi.")) {
-            Toast.makeText(this, "Nemoguće poručiti.", Toast.LENGTH_SHORT).show();
-        } else {
-            int bill = getPrice((String) textCena.getText());
-            ArrayList<Integer> bills = retrieveBillsFromCache(user);
-            bills.add(bill);
-            saveUserBillsToCache(bills, user);
-            LinearLayout linearLayout = findViewById(R.id.ordersContainer);
-            linearLayout.removeAllViews();
-            orders.clear();
-            textCena.setText("Nema ničega u korpi.");
-        }
+        int bill = getPrice((String) textCena.getText());
+        ArrayList<Integer> bills = retrieveBillsFromCache(user);
+        bills.add(bill);
+        saveUserBillsToCache(bills, user);
+        LinearLayout linearLayout = findViewById(R.id.ordersContainer);
+        linearLayout.removeAllViews();
+        orders.clear();
+        textCena.setText("Nema ničega u korpi.");
+        view.setVisibility(View.INVISIBLE);
+
     }
 }
